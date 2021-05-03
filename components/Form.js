@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styles from '../styles/Home.module.css'
 
 export default class extends React.Component {
 
@@ -56,7 +57,7 @@ export default class extends React.Component {
         .catch((error) => {
             console.log(error);
             this.setState({
-                response: "OOPS that didn't work :(",
+                response: "OOPS that didn't work",
             });
         });
     }
@@ -69,15 +70,15 @@ export default class extends React.Component {
             <div>
                 <form onSubmit={this.onSubmit}>
                     <div>
-                        <label for="quantity">quantity:</label>
-                        <input type="text" name="quantity" value={quantity} onChange={this.onChange}/>
+                        <div><label htmlFor="quantity" className={styles.label}>Enter the quantity of the item you want:</label></div>
+                        <div><input type="text" name="quantity" value={quantity} onChange={this.onChange} className={styles.textinput}/></div>
                     </div>
                     <div>
-                        <label for="packarr">packarr:</label>
-                        <input type="text" name="packarr" value={packarr} onChange={this.onChange}/>
+                        <div><label htmlFor="packarr" className={styles.label}>Please enter a comma separated list of integers for your pack sizes:</label></div>
+                        <div><input type="text" name="packarr" value={packarr} onChange={this.onChange} className={styles.textinput}/></div>
                     </div>
                     <div>
-                        <button type="submit">Submit</button>
+                        <button type="submit" className={styles.submit}>Submit</button>
                     </div>                   
                 </form>
                 <div>
